@@ -4,10 +4,10 @@
 ############################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu:12.04
+FROM ubuntu:latest
 
 # File Author / Maintainer
-MAINTAINER Rudi Starcevic <ooly.me@gmail.com>
+MAINTAINER rudijs <ooly.me@gmail.com>
 
 # Update the repository sources list
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list

@@ -1,17 +1,35 @@
 meanr-docker-mongodb-ci
 =======================
 
-MongoDB Docker container for use in Jenkins CI [MEANR Full Stack](https://github.com/rudijs/meanr-full-stack) builds.
+MongoDB Docker image with no database persistance, used in continuous integration builds
 
-## Some Docker Utility Commands
+## Pull the image (if you prefer to build your own see next step)
 
-List docker images
+    sudo docker pull rudijs/docker-mongodb-ci
+    
+## Build Image
+
+If you prefer to build the image instead of pulling from the public docker registry
+
+    cd docker-mongodb-ci/
+    sudo docker build -t <your-name>/docker-mongodb-ci .
+
+Review the new image
 
     sudo docker images
 
-List all running containers
+## Using the MongoDB image
 
-    sudo docker ps
+Run a mongodb-ci container (replace rudijs with <your-name> if you built your own docker image)
+
+    sudo docker run -d -p 27017:27017 -name mongodb-ci rudijs/docker-mongodb-ci
+
+Check the status
+
+    sudo docker ps -a
+    sudo docker logs mongodb-ci
+
+## Some Docker Utility Commands
 
 List all containers ever created
 
